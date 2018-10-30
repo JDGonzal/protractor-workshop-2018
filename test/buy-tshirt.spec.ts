@@ -1,8 +1,9 @@
 import { $, browser } from 'protractor';
-import { MenuContentPage } from '../src/page';
+import { MenuContentPage, ProductListPage } from '../src/page';
 
 describe('Buy a t-shirt', () => {
   const menuContentPage: MenuContentPage = new MenuContentPage();
+  const productListPage: ProductListPage = new ProductListPage();
   beforeEach(() => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
   });
@@ -12,7 +13,7 @@ describe('Buy a t-shirt', () => {
     await(browser.sleep(3000));
     await menuContentPage.goToTShirtMenu();
     await(browser.sleep(3000));
-    await $('#center_column a.button.ajax_add_to_cart_button.btn.btn-default').click();
+    await productListPage.goToAdd2CartButton();
     await(browser.sleep(3000));
     await $('[style*="display: block;"] .button-container > a').click();
     await(browser.sleep(3000));
