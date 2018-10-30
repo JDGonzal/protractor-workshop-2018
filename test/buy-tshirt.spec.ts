@@ -1,9 +1,26 @@
 import { $, browser } from 'protractor';
-import { MenuContentPage, ProductListPage } from '../src/page';
+import {
+  MenuContentPage,
+  ProductListPage,
+  ProductAddedModalPage,
+  SummaryStepPage,
+  SignInStepPage,
+  AddressStepPage,
+  ShippingStepPage,
+  PaymentStepPage,
+  BankPaymentPage
+} from '../src/page';
 
 describe('Buy a t-shirt', () => {
   const menuContentPage: MenuContentPage = new MenuContentPage();
   const productListPage: ProductListPage = new ProductListPage();
+  const productAddedModalPage: ProductAddedModalPage = new ProductAddedModalPage();
+  const summaryStepPage: SummaryStepPage = new SummaryStepPage();
+  const signInStepPage: SignInStepPage = new SignInStepPage();
+  const addressStepPage: AddressStepPage = new AddressStepPage();
+  const shippingStepPage: ShippingStepPage = new ShippingStepPage();
+  const paymentStepPage: PaymentStepPage = new PaymentStepPage();
+  const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
   beforeEach(() => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
   });
@@ -15,25 +32,23 @@ describe('Buy a t-shirt', () => {
     await(browser.sleep(3000));
     await productListPage.goToAdd2CartButton();
     await(browser.sleep(3000));
-    await $('[style*="display: block;"] .button-container > a').click();
+    await productAddedModalPage.goToCheckoutButton();
     await(browser.sleep(3000));
-    await $('.cart_navigation span').click();
-    await(browser.sleep(3000));
-
-    await $('#email').sendKeys('aperdomobo@gmail.com');
-    await $('#passwd').sendKeys('WorkshopProtractor');
-    await $('#SubmitLogin > span').click();
+    await summaryStepPage.goToCheckoutButton();
     await(browser.sleep(3000));
 
-    await $('#center_column > form > p > button > span').click();
+    await signInStepPage.goToLogin('aperdomobo@gmail.com', 'WorkshopProtractor');
     await(browser.sleep(3000));
 
-    await $('#cgv').click();
+    await addressStepPage.goToCheckout();
     await(browser.sleep(3000));
 
-    await $('#form > p > button > span').click();
+    await shippingStepPage.goToAcceptAndContinue();
     await(browser.sleep(3000));
-    await $('#HOOK_PAYMENT > div:nth-child(1) > div > p > a').click();
+
+    await paymentStepPage.goToPayByBank();
+    await(browser.sleep(3000));
+    await bankPaymentPage.goToConfirmOrder();
     await(browser.sleep(3000));
     await $('#cart_navigation > button > span').click();
     await(browser.sleep(3000));
