@@ -1,13 +1,13 @@
 import { $, ElementFinder } from 'protractor';
 
 export class ProductAddedModalPage {
-  private tCheckoutButton: ElementFinder;
+  private checkoutButton: ElementFinder;
 
   constructor () {
-    this.tCheckoutButton = $('[style*="display: block;"] .button-container > a');
+    this.checkoutButton = $('[style*="display: block;"] .button-container > a');
   }
 
   public async goToCheckoutButton(): Promise<void> {
-    await this.tCheckoutButton.click();
+    await this.checkoutButton.click();
   }
 }

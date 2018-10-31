@@ -1,13 +1,13 @@
 import { $, ElementFinder } from 'protractor';
 
 export class ShippingStepPage {
-  private tAcceptAndContinue: ElementFinder;
+  private acceptAndContinue: ElementFinder;
 
   constructor () {
-    this.tAcceptAndContinue = $('#cgv');
+    this.acceptAndContinue = $('#cgv');
   }
 
   public async goToAcceptAndContinue(): Promise<void> {
-    await this.tAcceptAndContinue.click();
+    this.acceptAndContinue.click();
   }
 }
