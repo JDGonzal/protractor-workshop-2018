@@ -4,7 +4,7 @@ export class BankPaymentPage {
   private tConfirmOrder: ElementFinder;
 
   constructor () {
-    this.tConfirmOrder = $('#HOOK_PAYMENT > div:nth-child(1) > div > p > a');
+    this.tConfirmOrder = $('#cart_navigation > button > span');
   }
 
   public async goToConfirmOrder(): Promise<void> {
