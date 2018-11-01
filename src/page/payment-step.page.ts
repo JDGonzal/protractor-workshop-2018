@@ -10,6 +10,7 @@ export class PaymentStepPage {
   }
 
   public async goToPayByBank(): Promise<void> {
+    await browser.sleep(3000);
     await this.checkoutButton.click();
     await(browser.sleep(3000));
     await this.payByBank.click();

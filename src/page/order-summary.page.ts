@@ -1,4 +1,4 @@
-import { $, ElementFinder } from 'protractor';
+import { $, ElementFinder, browser } from 'protractor';
 
 export class OrderSummaryPage {
   private orderTitleLabel: ElementFinder;
@@ -8,6 +8,7 @@ export class OrderSummaryPage {
   }
 
   public async getOrderTitle(): Promise<string> {
+    await browser.sleep(3000);
     await this.orderTitleLabel.click();
     return await this.orderTitleLabel.getText();
   }

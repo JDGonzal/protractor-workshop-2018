@@ -1,4 +1,4 @@
-import { $, ElementFinder } from 'protractor';
+import { $, ElementFinder, browser } from 'protractor';
 
 export class SummaryStepPage {
   private checkoutButton: ElementFinder;
@@ -8,6 +8,7 @@ export class SummaryStepPage {
   }
 
   public async goToCheckoutButton(): Promise<void> {
-    this.checkoutButton.click();
+    await browser.sleep(3000);
+    await this.checkoutButton.click();
   }
 }
