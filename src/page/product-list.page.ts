@@ -8,6 +8,6 @@ export class ProductListPage {
   }
 
   public async goToAdd2CartButton(): Promise<void> {
-    this.add2CartButton.click();
+    await this.add2CartButton.click();
   }
 }

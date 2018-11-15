@@ -8,6 +8,6 @@ export class SummaryStepPage {
   }
 
   public async goToCheckoutButton(): Promise<void> {
-    this.checkoutButton.click();
+    await this.checkoutButton.click();
   }
 }
