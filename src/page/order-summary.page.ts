@@ -1,4 +1,4 @@
-import { $, ElementFinder, browser } from 'protractor';
+import { $, ElementFinder, browser, ExpectedConditions } from 'protractor';
 
 export class OrderSummaryPage {
   private orderTitleLabel: ElementFinder;
@@ -8,8 +8,10 @@ export class OrderSummaryPage {
   }
 
   public async getOrderTitle(): Promise<string> {
-    await browser.sleep(3000);
+    await console.log('log1.');
+    await browser.wait(ExpectedConditions.elementToBeClickable(this.orderTitleLabel), 6000);
     await this.orderTitleLabel.click();
+    await console.log(this.orderTitleLabel.getText());
     return await this.orderTitleLabel.getText();
   }
 }
