@@ -4,7 +4,7 @@ export class AddressStepPage {
   private checkout: ElementFinder;
 
   constructor () {
-    this.checkout = $('#center_column > form > p > button > span');
+    this.checkout = $('[name="processAddress"]');
   }
 
   public async goToCheckout(): Promise<void> {
