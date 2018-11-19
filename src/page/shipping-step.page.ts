@@ -6,7 +6,7 @@ export class ShippingStepPage {
 
   constructor () {
     this.acceptAndContinue = $('#cgv');
-    this.checkoutButton = $('#form > p > button > span');
+    this.checkoutButton = $('[name="processCarrier"]');
   }
 
   public async goToAcceptAndContinue(): Promise<void> {
